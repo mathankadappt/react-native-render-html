@@ -96,7 +96,7 @@ export function ul (htmlAttribs, children, convertedCSSStyles, passProps = {}) {
                 prefix = listsPrefixesRenderers && listsPrefixesRenderers.ol ? listsPrefixesRenderers.ol(...rendererArgs) : (
                     <Text key={`ol-${index}-${key}`} style={{ marginRight: 5, fontSize: baseFontSize }}>
                         {   
-                            (rawChild.parent.attribs.type) ? String.fromCharCode(nex++) : (rawChild.parent.attribs.start) ? parseInt(rawChild.parent.attribs.start) + index : index + 1 
+                            (rawChild.parent.attribs.type) ? String.fromCharCode(nex+index) : (rawChild.parent.attribs.start) ? parseInt(rawChild.parent.attribs.start) + index : index + 1 
                         })
                     </Text>
                 );
