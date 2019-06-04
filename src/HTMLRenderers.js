@@ -92,8 +92,13 @@ export function ul (htmlAttribs, children, convertedCSSStyles, passProps = {}) {
                     }} />
                 );
             } else if (rawChild.parentTag === 'ol' && rawChild.tagName === 'li') {
+                var nex = 'a'.charCodeAt(0);
                 prefix = listsPrefixesRenderers && listsPrefixesRenderers.ol ? listsPrefixesRenderers.ol(...rendererArgs) : (
-                    <Text allowFontScaling={allowFontScaling} style={{ marginRight: 5, fontSize: baseFontSize }}>{ index + 1 })</Text>
+                    <Text key={`ol-${index}-${key}`} style={{ marginRight: 5, fontSize: baseFontSize }}>
+                        {   
+                            (rawChild.parent.attribs.type) ? String.fromCharCode(nex++) : (rawChild.parent.attribs.start) ? parseInt(rawChild.parent.attribs.start) + index : index + 1 
+                        })
+                    </Text>
                 );
             }
         }
