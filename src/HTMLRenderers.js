@@ -82,7 +82,7 @@ export function ul (htmlAttribs, children, convertedCSSStyles, passProps = {}) {
         if (rawChild) {
             if (rawChild.parentTag === 'ul' && rawChild.tagName === 'li') {
                 prefix = listsPrefixesRenderers && listsPrefixesRenderers.ul ? listsPrefixesRenderers.ul(...rendererArgs) : (
-                    <View style={{
+                    <View key={'ul-'+index} style={{
                         marginRight: 10,
                         width: baseFontSize / 2.8,
                         height: baseFontSize / 2.8,
